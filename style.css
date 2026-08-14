@@ -172,25 +172,31 @@ form {
 }
 
 
+
+
 input,
 textarea {
-
-    width: 90%;
+    width: 80%;
     padding: 10px;
-    margin: 10p autox;
+    margin: 10px auto;
+    display: block;
 
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
 }
+
 textarea {
     height: 120px;
     resize: none;
 }
 
 form button {
-    width: 100%;
+    width: 80%;
     padding: 15px;
+    margin: 10px auto;
+    display: block;
+
     background: #28a745;
     color: white;
     border: none;
