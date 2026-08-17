@@ -361,3 +361,6 @@ footer {
     margin-top: 10px;
     font-weight: bold;
 }
+    .gallery-container img {
+    cursor: pointer;
+}
