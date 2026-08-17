@@ -132,19 +132,24 @@
     </p>
 
 
-    <form id="contactForm">
+    <form id="contactForm"
+      action="https://formspree.io/f/xnpavjae"
+      method="POST">
 
     <input 
-        type="text" 
+        type="text"
+        name="name"
         placeholder="Your Name"
         required>
 
     <input 
         type="email"
+        name="email"
         placeholder="Your Email"
         required>
 
     <textarea
+        name="message"
         rows="5"
         placeholder="Your Message"
         required></textarea>
