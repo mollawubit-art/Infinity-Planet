@@ -35,11 +35,13 @@ if (form) {
 let count = 0;
 const customerCount = document.getElementById("customerCount");
 
-const counter = setInterval(() => {
-    count++;
-    customerCount.textContent = count + "+";
+if (customerCount) {
+    const counter = setInterval(() => {
+        count++;
+        customerCount.textContent = count + "+";
 
-    if (count === 500) {
-        clearInterval(counter);
-    }
-}, 10);
+        if (count >= 500) {
+            clearInterval(counter);
+        }
+    }, 10);
+}
