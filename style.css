@@ -348,6 +348,13 @@ footer {
     margin: 0;
     font-weight: bold;
 }
+    .gallery-container img {
+    transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.08);
+}
 
 .stat-box p {
     font-size: 20px;
