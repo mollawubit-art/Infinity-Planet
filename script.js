@@ -104,60 +104,70 @@ document.addEventListener("DOMContentLoaded", function () {
             (index + galleryImages.length) %
             galleryImages.length;
 
-        lightboxImg.src =
-            galleryImages[currentImageIndex].src;
+        const image =
+            galleryImages[currentImageIndex];
+
+        lightboxImg.src = image.src;
 
         lightboxImg.alt =
-            galleryImages[currentImageIndex].alt ||
-            "Gallery Image";
+            image.alt || "Gallery Image";
 
+        lightboxImg.style.display = "block";
     }
 
 
     // Next Image
-    nextBtn.addEventListener("click", function (event) {
+    if (nextBtn) {
+        nextBtn.addEventListener("click", function (event) {
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-        showImage(currentImageIndex + 1);
+            showImage(currentImageIndex + 1);
 
-    });
+        });
+    }
 
 
     // Previous Image
-    prevBtn.addEventListener("click", function (event) {
+    if (prevBtn) {
+        prevBtn.addEventListener("click", function (event) {
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-        showImage(currentImageIndex - 1);
+            showImage(currentImageIndex - 1);
 
-    });
+        });
+    }
 
 
     // Close Button
-    closeBtn.addEventListener("click", function () {
-
-        lightbox.style.display = "none";
-
-    });
-
-
-    // Close Outside
-    lightbox.addEventListener("click", function (event) {
-
-        if (event.target === lightbox) {
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
 
             lightbox.style.display = "none";
 
-        }
+        });
+    }
 
-    });
+
+    // Close Outside
+    if (lightbox) {
+        lightbox.addEventListener("click", function (event) {
+
+            if (event.target === lightbox) {
+
+                lightbox.style.display = "none";
+
+            }
+
+        });
+    }
 
 
     // Keyboard Controls
     document.addEventListener("keydown", function (event) {
 
-        if (lightbox.style.display === "flex") {
+        if (lightbox && lightbox.style.display === "flex") {
 
             if (event.key === "ArrowRight") {
                 showImage(currentImageIndex + 1);
