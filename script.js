@@ -57,41 +57,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentImageIndex = 0;
 
+    // Check if gallery images exist
+    if (galleryImages.length === 0) {
+        console.log("No gallery images found.");
+        return;
+    }
+
     // Open image
     galleryImages.forEach(function (image, index) {
         image.addEventListener("click", function () {
             currentImageIndex = index;
-            lightboxImg.src = galleryImages[currentImageIndex].src;
+
+            lightboxImg.src = image.src;
+            lightboxImg.alt = image.alt || "Gallery Image";
+
             lightbox.style.display = "flex";
         });
     });
 
-    // Close button
-    closeBtn.addEventListener("click", function () {
-        lightbox.style.display = "none";
-    });
+    // Show image function
+    function showImage(index) {
+        currentImageIndex =
+            (index + galleryImages.length) % galleryImages.length;
+
+        lightboxImg.src = galleryImages[currentImageIndex].src;
+        lightboxImg.alt =
+            galleryImages[currentImageIndex].alt || "Gallery Image";
+    }
 
     // Next image
     nextBtn.addEventListener("click", function (event) {
         event.stopPropagation();
-
-        currentImageIndex =
-            (currentImageIndex + 1) % galleryImages.length;
-
-        lightboxImg.src =
-            galleryImages[currentImageIndex].src;
+        showImage(currentImageIndex + 1);
     });
 
     // Previous image
     prevBtn.addEventListener("click", function (event) {
         event.stopPropagation();
+        showImage(currentImageIndex - 1);
+    });
 
-        currentImageIndex =
-            (currentImageIndex - 1 + galleryImages.length) %
-            galleryImages.length;
-
-        lightboxImg.src =
-            galleryImages[currentImageIndex].src;
+    // Close button
+    closeBtn.addEventListener("click", function () {
+        lightbox.style.display = "none";
     });
 
     // Close when clicking outside
