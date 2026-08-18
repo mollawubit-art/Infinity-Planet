@@ -384,10 +384,10 @@ footer {
 
     transform: scale(0.7);
     opacity: 0;
-    transition: transform 0.35s ease, opacity 0.35s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.lightbox[style*="display: flex"] img {
+.lightbox.show img {
     transform: scale(1);
     opacity: 1;
 }
