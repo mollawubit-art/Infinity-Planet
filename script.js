@@ -92,6 +92,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             lightbox.style.display = "flex";
 
+            setTimeout(function () {
+                lightbox.classList.add("show");
+            }, 10);
+
         });
 
     });
@@ -137,16 +141,18 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close Button
     closeBtn.addEventListener("click", function () {
 
+        lightbox.classList.remove("show");
         lightbox.style.display = "none";
 
     });
 
 
-    // Close When Clicking Outside
+    // Close Outside
     lightbox.addEventListener("click", function (event) {
 
         if (event.target === lightbox) {
 
+            lightbox.classList.remove("show");
             lightbox.style.display = "none";
 
         }
@@ -159,23 +165,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (lightbox.style.display === "flex") {
 
-            // Right Arrow → Next Image
+            // Right Arrow
             if (event.key === "ArrowRight") {
-
                 showImage(currentImageIndex + 1);
-
             }
 
-            // Left Arrow → Previous Image
+            // Left Arrow
             if (event.key === "ArrowLeft") {
-
                 showImage(currentImageIndex - 1);
-
             }
 
-            // Escape → Close Lightbox
+            // Escape
             if (event.key === "Escape") {
 
+                lightbox.classList.remove("show");
                 lightbox.style.display = "none";
 
             }
