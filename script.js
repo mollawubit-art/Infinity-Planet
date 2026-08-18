@@ -102,3 +102,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+// Keyboard controls
+document.addEventListener("keydown", function (event) {
+    if (lightbox.style.display === "flex") {
+
+        if (event.key === "ArrowRight") {
+            showImage(currentImageIndex + 1);
+        }
+
+        if (event.key === "ArrowLeft") {
+            showImage(currentImageIndex - 1);
+        }
+
+        if (event.key === "Escape") {
+            lightbox.style.display = "none";
+        }
+    }
+});
+
+});
