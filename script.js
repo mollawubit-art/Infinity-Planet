@@ -57,39 +57,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentImageIndex = 0;
 
+    // Open image
     galleryImages.forEach(function (image, index) {
         image.addEventListener("click", function () {
             currentImageIndex = index;
+            lightboxImg.src = galleryImages[currentImageIndex].src;
             lightbox.style.display = "flex";
-            lightboxImg.src = image.src;
         });
     });
 
+    // Close button
     closeBtn.addEventListener("click", function () {
         lightbox.style.display = "none";
     });
 
-    nextBtn.addEventListener("click", function () {
-        currentImageIndex++;
+    // Next image
+    nextBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
 
-        if (currentImageIndex >= galleryImages.length) {
-            currentImageIndex = 0;
-        }
+        currentImageIndex =
+            (currentImageIndex + 1) % galleryImages.length;
 
-        lightboxImg.src = galleryImages[currentImageIndex].src;
+        lightboxImg.src =
+            galleryImages[currentImageIndex].src;
     });
 
-    prevBtn.addEventListener("click", function () {
-        currentImageIndex--;
+    // Previous image
+    prevBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
 
-        if (currentImageIndex < 0) {
-            currentImageIndex = galleryImages.length - 1;
-        }
+        currentImageIndex =
+            (currentImageIndex - 1 + galleryImages.length) %
+            galleryImages.length;
 
-        lightboxImg.src = galleryImages[currentImageIndex].src;
+        lightboxImg.src =
+            galleryImages[currentImageIndex].src;
     });
 
-    // Close when clicking outside the image
+    // Close when clicking outside
     lightbox.addEventListener("click", function (event) {
         if (event.target === lightbox) {
             lightbox.style.display = "none";
