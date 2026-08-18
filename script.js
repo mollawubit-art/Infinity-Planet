@@ -92,10 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             lightbox.style.display = "flex";
 
-            setTimeout(function () {
-                lightbox.classList.add("show");
-            }, 10);
-
         });
 
     });
@@ -141,7 +137,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close Button
     closeBtn.addEventListener("click", function () {
 
-        lightbox.classList.remove("show");
         lightbox.style.display = "none";
 
     });
@@ -152,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (event.target === lightbox) {
 
-            lightbox.classList.remove("show");
             lightbox.style.display = "none";
 
         }
@@ -165,22 +159,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (lightbox.style.display === "flex") {
 
-            // Right Arrow
             if (event.key === "ArrowRight") {
                 showImage(currentImageIndex + 1);
             }
 
-            // Left Arrow
             if (event.key === "ArrowLeft") {
                 showImage(currentImageIndex - 1);
             }
 
-            // Escape
             if (event.key === "Escape") {
-
-                lightbox.classList.remove("show");
                 lightbox.style.display = "none";
-
             }
 
         }
