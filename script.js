@@ -45,3 +45,19 @@ if (customerCount) {
         }
     }, 10);
 }
+// Gallery Image Lightbox
+const galleryImages = document.querySelectorAll(".gallery-container img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+galleryImages.forEach(function(image) {
+    image.addEventListener("click", function() {
+        lightbox.style.display = "flex";
+        lightboxImg.src = this.src;
+    });
+});
+
+closeBtn.addEventListener("click", function() {
+    lightbox.style.display = "none";
+});
