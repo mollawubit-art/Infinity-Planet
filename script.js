@@ -52,9 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".close");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
 
-    galleryImages.forEach(function (image) {
+    let currentImageIndex = 0;
+
+    galleryImages.forEach(function (image, index) {
         image.addEventListener("click", function () {
+            currentImageIndex = index;
             lightbox.style.display = "flex";
             lightboxImg.src = image.src;
         });
@@ -64,10 +69,31 @@ document.addEventListener("DOMContentLoaded", function () {
         lightbox.style.display = "none";
     });
 
-});
-// Close lightbox when clicking outside the image
-lightbox.addEventListener("click", function (event) {
-    if (event.target === lightbox) {
-        lightbox.style.display = "none";
-    }
+    nextBtn.addEventListener("click", function () {
+        currentImageIndex++;
+
+        if (currentImageIndex >= galleryImages.length) {
+            currentImageIndex = 0;
+        }
+
+        lightboxImg.src = galleryImages[currentImageIndex].src;
+    });
+
+    prevBtn.addEventListener("click", function () {
+        currentImageIndex--;
+
+        if (currentImageIndex < 0) {
+            currentImageIndex = galleryImages.length - 1;
+        }
+
+        lightboxImg.src = galleryImages[currentImageIndex].src;
+    });
+
+    // Close when clicking outside the image
+    lightbox.addEventListener("click", function (event) {
+        if (event.target === lightbox) {
+            lightbox.style.display = "none";
+        }
+    });
+
 });
