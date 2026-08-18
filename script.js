@@ -65,4 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
+// Close lightbox when clicking outside the image
+lightbox.addEventListener("click", function (event) {
+    if (event.target === lightbox) {
+        lightbox.style.display = "none";
+    }
+});
