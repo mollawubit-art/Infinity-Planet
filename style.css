@@ -387,6 +387,31 @@ footer {
 .close {
     position: absolute;
     top: 20px;
+    /* Next and Previous Buttons */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover,
+.next:hover {
+    opacity: 0.7;
+}
     right: 30px;
     color: white;
     font-size: 40px;
