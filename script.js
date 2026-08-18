@@ -104,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // Keyboard controls
 document.addEventListener("keydown", function (event) {
-    if (lightbox.style.display === "flex") {
+
+    if (lightbox.style.display !== "none") {
 
         if (event.key === "ArrowRight") {
             showImage(currentImageIndex + 1);
@@ -117,7 +118,7 @@ document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
             lightbox.style.display = "none";
         }
+
     }
-});
 
 });
