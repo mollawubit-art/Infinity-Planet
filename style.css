@@ -1,11 +1,12 @@
-*html {
+html {
     scroll-behavior: smooth;
-} {
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 
 body {
     font-family: Arial, sans-serif;
@@ -13,15 +14,14 @@ body {
     color: #333;
 }
 
-
 /* Header */
-
 header {
     background-color: #ff69b4;
     color: white;
     text-align: center;
     padding: 25px;
 }
+
 .logo {
     font-size: 30px;
     font-weight: bold;
@@ -32,13 +32,10 @@ header h1 {
     font-size: 40px;
 }
 
-
 /* Navigation */
-
 nav {
     margin-top: 15px;
 }
-
 
 nav a {
     color: white;
@@ -47,20 +44,15 @@ nav a {
     font-size: 18px;
 }
 
-
 nav a:hover {
     color: yellow;
 }
 
-
-
 /* Sections */
-
 section {
     padding: 50px;
     text-align: center;
 }
-
 
 section h2 {
     color: #d63384;
@@ -68,22 +60,18 @@ section h2 {
     margin-bottom: 20px;
 }
 
-
-
 /* Home */
-
 #home {
     background-color: #ffe4f2;
     padding: 80px;
 }
-
 
 #home p {
     font-size: 22px;
     margin: 20px;
 }
 
-
+/* Buttons */
 button {
     background-color: #d63384;
     color: white;
@@ -93,18 +81,12 @@ button {
     cursor: pointer;
 }
 
-
 button:hover {
     background-color: #a61e5c;
 }
 
-
-
-
 /* Services */
-
 .service-box {
-
     display: inline-block;
     width: 280px;
     margin: 15px;
@@ -112,67 +94,43 @@ button:hover {
     background-color: white;
     border-radius: 15px;
     box-shadow: 0 5px 15px #ccc;
-
+    transition: 0.3s;
 }
-
 
 .service-box:hover {
-
     transform: translateY(-10px);
-    transition: 0.3s;
-
 }
 
-
-
-
 /* Gallery */
-
 .gallery-container {
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-
 }
 
-
 .gallery-container img {
-
     width: 250px;
     height: 250px;
     object-fit: cover;
     border-radius: 15px;
-
-    transition: 0.4s;
-
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
-
-
 
 .gallery-container img:hover {
-
-    transform: scale(1.1);
-
+    transform: scale(1.08);
 }
 
-
-
-
 /* Contact */
-
 form {
     max-width: 600px;
     margin: 30px auto;
     padding: 20px;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
-
-
 
 input,
 textarea {
@@ -180,7 +138,6 @@ textarea {
     padding: 10px;
     margin: 10px auto;
     display: block;
-
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
@@ -196,7 +153,6 @@ form button {
     padding: 15px;
     margin: 10px auto;
     display: block;
-
     background: #28a745;
     color: white;
     border: none;
@@ -209,15 +165,15 @@ form button {
 form button:hover {
     background: #218838;
 }
+
 /* Footer */
-
 footer {
-
     background-color: #ff69b4;
     color: white;
     text-align: center;
     padding: 20px;
 }
+
 .footer h3 {
     font-size: 30px;
     margin-bottom: 10px;
@@ -247,35 +203,8 @@ footer {
     margin-top: 20px;
     font-size: 14px;
 }
-/* Responsive Design */
 
-@media (max-width: 768px) {
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-container {
-        grid-template-columns: 1fr;
-    }
-
-    form {
-        width: 90%;
-    }
-
-    .hero h2 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
+/* Back to Top Button */
 #topBtn {
     display: none;
     position: fixed;
@@ -295,6 +224,7 @@ footer {
     background-color: #ff1493;
 }
 
+/* Home Buttons */
 .shop-btn,
 .learn-btn {
     display: inline-block;
@@ -320,7 +250,9 @@ footer {
     opacity: 0.8;
     transform: scale(1.05);
 }
-    .stats {
+
+/* Customer Statistics */
+.stats {
     text-align: center;
     margin: 40px auto;
 }
@@ -335,25 +267,9 @@ footer {
 }
 
 .stat-box h2 {
-    font-size: 45px;
-    margin: 0;
-}
-
-.stat-box p {
-    font-size: 18px;
-    margin-top: 10px;
-}
-.stat-box h2 {
     font-size: 50px;
     margin: 0;
     font-weight: bold;
-}
-    .gallery-container img {
-    transition: transform 0.3s ease;
-}
-
-.gallery-container img:hover {
-    transform: scale(1.08);
 }
 
 .stat-box p {
@@ -361,43 +277,54 @@ footer {
     margin-top: 10px;
     font-weight: bold;
 }
-    .gallery-container img {
-    cursor: pointer;
-}
-    /* Image Lightbox */
+
+/* Image Lightbox */
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
 }
 
 .lightbox img {
-    max-width: 90%;
+    max-width: 80%;
     max-height: 85%;
     border-radius: 10px;
+    position: relative;
+    z-index: 2001;
 }
 
+/* Close Button */
 .close {
     position: absolute;
     top: 20px;
-    /* Next and Previous Buttons */
+    right: 30px;
+    z-index: 2003;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Next and Previous Buttons */
 .prev,
 .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 2002;
     color: white;
     font-size: 50px;
     font-weight: bold;
     cursor: pointer;
     padding: 15px;
+    user-select: none;
 }
 
 .prev {
@@ -409,11 +336,62 @@ footer {
 }
 
 .prev:hover,
-.next:hover {
+.next:hover,
+.close:hover {
     opacity: 0.7;
 }
-    right: 30px;
-    color: white;
-    font-size: 40px;
-   	cursor: pointer;
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    section {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    .service-box {
+        width: 90%;
+    }
+
+    .gallery-container img {
+        width: 90%;
+        height: auto;
+        max-width: 300px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    .lightbox img {
+        max-width: 75%;
+        max-height: 80%;
+    }
+
+    .prev,
+    .next {
+        font-size: 40px;
+        padding: 10px;
+    }
+
+    .prev {
+        left: 5px;
+    }
+
+    .next {
+        right: 5px;
+    }
 }
